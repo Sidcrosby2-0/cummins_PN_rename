@@ -1,8 +1,7 @@
 import re
 import pandas as pd
 
-file = 'QSK45 33219606.xlsx'
-# file_name =   Задать параметр для сохранения выходного файла с таким же именем + пометка о преобразовании
+file = 'QSK45_33219606.xlsx'
 x1 = pd.ExcelFile(file)
 
 df1 = x1.parse('сводный')
@@ -38,5 +37,5 @@ def pn_translate():      # добавить функцию удаления пр
 
 kamss_prt = pn_translate()
 df1['kamss'] = kamss_prt
-df1.to_excel('otkroi_menya.xlsx')
+df1.to_excel(str(file[0:-5] + '_new_PN.xlsx'))
 print(df1.head())
